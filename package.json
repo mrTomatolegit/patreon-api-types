@@ -1,0 +1,75 @@
+{
+    "name": "patreon-api-types",
+    "version": "0.0.1",
+    "description": "A package to use for developping Patreon API modules",
+    "scripts": {
+        "prepare": "npm run build",
+        "prepublishOnly": "npm run lint",
+        "preversion": "npm run lint",
+        "version": "git add -A",
+        "lint": "eslint . --fix",
+        "clean": "rimraf {payloads,rest,utils}/**/*.{js,mjs,d.ts,*map} v*.{js,mjs,d.ts,*map}",
+        "esm:payloads": "gen-esm-wrapper ./payloads/index.js ./payloads/index.mjs",
+        "esm:versions": "node ./scripts/versions.mjs",
+        "build": "tsc --build tsconfig.json && run-p esm:*"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrTomatolegit/patreon-api-types.git"
+    },
+    "files": [
+        "{payloads,rest,utils}/**/*.{js,js.map,d.ts,d.ts.map,mjs}",
+        "v*.{js,js.map,d.ts,d.ts.map,mjs}"
+    ],
+    "exports": {
+        "./v2": {
+            "require": "./v2.js",
+            "import": "./v2.mjs",
+            "types": "./v2.d.ts"
+        },
+        "./payloads": {
+            "require": "./payloads/index.js",
+            "import": "./payloads/index.mjs",
+            "types": "./payloads/index.d.ts"
+        },
+        "./payloads/v*": {
+            "require": "./payloads/v*/index.js",
+            "import": "./payloads/v*/index.mjs",
+            "types": "./payloads/v*/index.d.ts"
+        },
+        "./rest": {
+            "require": "./rest/index.js",
+            "import": "./rest/index.mjs",
+            "types": "./rest/index.d.ts"
+        },
+        "./rest/v*": {
+            "require": "./rest/v*/index.js",
+            "import": "./rest/v*/index.mjs",
+            "types": "./rest/v*/index.d.ts"
+        }
+    },
+    "keywords": [
+        "patreon",
+        "patreon-api",
+        "patreon-types"
+    ],
+    "author": "mrTomatolegit",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/mrTomatolegit/patreon-api-types/issues"
+    },
+    "homepage": "https://github.com/mrTomatolegit/patreon-api-types#readme",
+    "devDependencies": {
+        "@types/node": "^17.0.42",
+        "@typescript-eslint/eslint-plugin": "^5.27.1",
+        "@typescript-eslint/parser": "^5.27.1",
+        "eslint": "^8.17.0",
+        "gen-esm-wrapper": "^1.1.3",
+        "npm-run-all": "^4.1.5",
+        "rimraf": "^3.0.2",
+        "typescript": "^4.7.3"
+    },
+    "dependencies": {
+        "include-json-api": "^0.0.1"
+    }
+}
