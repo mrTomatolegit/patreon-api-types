@@ -8,7 +8,7 @@
         "preversion": "npm run lint",
         "version": "git add -A",
         "lint": "eslint . --fix",
-        "clean": "rimraf {payloads,rest,utils}/**/*.{js,mjs,d.ts,*map} v*.{js,mjs,d.ts,*map}",
+        "clean": "rimraf {payloads,rest,utils,webhooks}/**/*.{js,mjs,d.ts,*map} v*.{js,mjs,d.ts,*map}",
         "esm:payloads": "gen-esm-wrapper ./payloads/index.js ./payloads/index.mjs",
         "esm:versions": "node ./scripts/versions.mjs",
         "build": "tsc --build tsconfig.json && run-p esm:*"
@@ -18,7 +18,7 @@
         "url": "git+https://github.com/mrTomatolegit/patreon-api-types.git"
     },
     "files": [
-        "{payloads,rest,utils}/**/*.{js,js.map,d.ts,d.ts.map,mjs}",
+        "{payloads,rest,utils,webhooks}/**/*.{js,js.map,d.ts,d.ts.map,mjs}",
         "v*.{js,js.map,d.ts,d.ts.map,mjs}"
     ],
     "exports": {
@@ -46,6 +46,16 @@
             "require": "./rest/v*/index.js",
             "import": "./rest/v*/index.mjs",
             "types": "./rest/v*/index.d.ts"
+        },
+        "./webhooks": {
+            "require": "./webhooks/index.js",
+            "import": "./webhooks/index.mjs",
+            "types": "./webhooks/index.d.ts"
+        },
+        "./webhooks/v*": {
+            "require": "./webhooks/v*/index.js",
+            "import": "./webhooks/v*/index.mjs",
+            "types": "./webhooks/v*/index.d.ts"
         }
     },
     "keywords": [

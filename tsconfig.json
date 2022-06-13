@@ -77,5 +77,6 @@
 		"payloads/**/*.ts",
 		"rest/**/*.ts",
 		"utils/**/*.ts",
+        "webhooks/**/*.ts"
 	]
 }
