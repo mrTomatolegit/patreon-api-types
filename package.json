@@ -1,6 +1,6 @@
 {
     "name": "patreon-api-types",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "A package to use for developping Patreon API modules",
     "scripts": {
         "prepare": "npm run build",
