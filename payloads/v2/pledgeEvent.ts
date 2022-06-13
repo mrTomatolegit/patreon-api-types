@@ -14,7 +14,7 @@ export type APIPledgeEventType =
     | 'subscription';
 
 export interface APIPledgeEvent extends ResourceObject {
-    type: 'pledge_event'; // unknown
+    type: 'pledge-event';
     attributes: {
         /**
          * Amount (in the currency in which the patron paid) of the underlying event.

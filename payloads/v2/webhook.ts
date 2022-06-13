@@ -16,7 +16,7 @@ export type APIWebhookTrigger =
     | 'posts:delete';
 
 export interface APIWebhook extends ResourceObject {
-    type: 'webhook'; // unknown
+    type: 'webhook';
     attributes: {
         /**
          * Last date that the webhook was attempted or used.
@@ -38,7 +38,7 @@ export interface APIWebhook extends ResourceObject {
         /**
          * List of events that will trigger this webhook.
          */
-        triggers: APIWebhookTrigger[]; // unknown
+        triggers: APIWebhookTrigger[];
         /**
          * Fully qualified uri where webhook will be sent (e.g. https://www.example.com/webhooks/incoming).
          */
